@@ -1,0 +1,200 @@
+[gd_scene load_steps=42 format=2]
+
+[ext_resource path="res://imagens/neutral.png" type="Texture" id=1]
+[ext_resource path="res://imagens/metal1.png" type="Texture" id=2]
+[ext_resource path="res://Game.gd" type="Script" id=3]
+[ext_resource path="res://imagens/metal2.png" type="Texture" id=4]
+[ext_resource path="res://imagens/metal3.png" type="Texture" id=5]
+[ext_resource path="res://imagens/papel3.png" type="Texture" id=6]
+[ext_resource path="res://imagens/plastico2.png" type="Texture" id=7]
+[ext_resource path="res://imagens/nao3.png" type="Texture" id=8]
+[ext_resource path="res://imagens/nao2.png" type="Texture" id=9]
+[ext_resource path="res://imagens/nao1.png" type="Texture" id=10]
+[ext_resource path="res://imagens/plastico1.png" type="Texture" id=11]
+[ext_resource path="res://imagens/plastico3.png" type="Texture" id=12]
+[ext_resource path="res://imagens/papel2.png" type="Texture" id=13]
+[ext_resource path="res://imagens/vidro1.png" type="Texture" id=14]
+[ext_resource path="res://imagens/vidro3.png" type="Texture" id=15]
+[ext_resource path="res://imagens/vidro2.png" type="Texture" id=16]
+[ext_resource path="res://imagens/papel1.png" type="Texture" id=17]
+[ext_resource path="res://item.gd" type="Script" id=18]
+[ext_resource path="res://imagens/crumpled-white-paperboard.jpg" type="Texture" id=19]
+[ext_resource path="res://lixo_nao.gd" type="Script" id=24]
+[ext_resource path="res://lixo_plastico.gd" type="Script" id=25]
+[ext_resource path="res://lixo_papel.gd" type="Script" id=26]
+[ext_resource path="res://lixo_vidro.gd" type="Script" id=27]
+[ext_resource path="res://lixo_metal.gd" type="Script" id=28]
+[ext_resource path="res://imagens/sad.png" type="Texture" id=29]
+[ext_resource path="res://face.gd" type="Script" id=30]
+[ext_resource path="res://imagens/happy.png" type="Texture" id=31]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=32]
+[ext_resource path="res://imagens/ballon_talk-removebg-preview.png" type="Texture" id=33]
+[ext_resource path="res://RobotoMono-VariableFont_wght.ttf" type="DynamicFontData" id=34]
+[ext_resource path="res://imagens/ok.png" type="Texture" id=35]
+[ext_resource path="res://imagens/fail.png" type="Texture" id=36]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 29 ), ExtResource( 1 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 36 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "bool",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=3]
+size = 27
+font_data = ExtResource( 34 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 13 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "papel",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "nao",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 16 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "vidro",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 7 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "plastico",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "metal",
+"speed": 4.96
+} ]
+
+[sub_resource type="StreamTexture" id=5]
+flags = 4
+load_path = "res://.import/lixo2_nao.png-503880ae2ec56106b1b5fdce337228c4.stex"
+
+[sub_resource type="StreamTexture" id=6]
+flags = 4
+load_path = "res://.import/lixo2_metal.png-74524cace8b741db4e0d16130f3839ff.stex"
+
+[sub_resource type="StreamTexture" id=7]
+flags = 4
+load_path = "res://.import/lixo2_papel.png-d86af73a1c0c6e33cb0635abdca0ac86.stex"
+
+[sub_resource type="StreamTexture" id=8]
+flags = 4
+load_path = "res://.import/lixo2_plastico.png-12241bdb391d4c6bbdbda7e8a65c1dd2.stex"
+
+[sub_resource type="StreamTexture" id=9]
+flags = 4
+load_path = "res://.import/lixo2_vidro.png-01e28083ca93b8e09aa425e8b5e0ed4e.stex"
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 4455.0
+margin_bottom = 2970.0
+rect_scale = Vector2( 0.231189, 0.203073 )
+size_flags_horizontal = 11
+size_flags_vertical = 11
+texture = ExtResource( 19 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="face" type="AnimatedSprite" parent="."]
+position = Vector2( 174.66, 177.414 )
+frames = SubResource( 1 )
+frame = 1
+script = ExtResource( 30 )
+
+[node name="robot_say" type="Label" parent="face"]
+margin_left = 149.738
+margin_top = -93.414
+margin_right = 317.738
+margin_bottom = -52.414
+custom_fonts/font = ExtResource( 32 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Plastico!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ballon" type="Sprite" parent="face"]
+position = Vector2( 234.466, -67.6049 )
+scale = Vector2( 0.660492, 0.421712 )
+texture = ExtResource( 33 )
+
+[node name="judge" type="AnimatedSprite" parent="face"]
+position = Vector2( 244.577, 123.866 )
+scale = Vector2( 0.363428, 0.333172 )
+frames = SubResource( 2 )
+animation = "bool"
+
+[node name="judge_msg" type="Label" parent="face"]
+margin_left = 294.717
+margin_top = 102.259
+margin_right = 502.717
+margin_bottom = 154.259
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Você acertou!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="acc" type="Label" parent="face"]
+visible = false
+margin_left = -150.063
+margin_top = -153.413
+margin_right = -40.063
+margin_bottom = -111.413
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="item" type="AnimatedSprite" parent="."]
+position = Vector2( 807.397, 161.459 )
+frames = SubResource( 4 )
+animation = "vidro"
+script = ExtResource( 18 )
+
+[node name="lixo_nao" type="Sprite" parent="."]
+position = Vector2( 119.692, 487.59 )
+texture = SubResource( 5 )
+script = ExtResource( 24 )
+
+[node name="lixo_metal" type="Sprite" parent="."]
+position = Vector2( 313.721, 486.329 )
+texture = SubResource( 6 )
+script = ExtResource( 28 )
+
+[node name="lixo_papel" type="Sprite" parent="."]
+position = Vector2( 511.528, 485.069 )
+texture = SubResource( 7 )
+script = ExtResource( 26 )
+
+[node name="lixo_plastico" type="Sprite" parent="."]
+position = Vector2( 709.335, 488.849 )
+texture = SubResource( 8 )
+script = ExtResource( 25 )
+
+[node name="lixo_vidro" type="Sprite" parent="."]
+position = Vector2( 889.505, 487.589 )
+texture = SubResource( 9 )
+script = ExtResource( 27 )
